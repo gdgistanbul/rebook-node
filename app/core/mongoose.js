@@ -17,10 +17,3 @@ fs.readdirSync(models_path).forEach(function (file) {
     if (~file.indexOf('.js'))
         require(models_path + '/' + file)
 })
-
-var Book = mongoose.model('Book')
-Book.find().exec(function (err, docs) {
-    docs.forEach(function (doc) {
-        doc.index()
-    })
-})
