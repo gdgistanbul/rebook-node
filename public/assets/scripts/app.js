@@ -44,13 +44,13 @@ var App = function () {
                     url: '/1/books/autocomplete/%QUERY',
                     filter: function(data) {
                         var resultList = data.map(function(item) {
-                            var jsonObject = {value: item.title, key: item.isbn};
+                            var jsonObject = {value: item.title, key: item.isbn, image: item.imgName};
                             return jsonObject;
                         });
                         return resultList;
                     }
                 },
-                template: ['<strong>{{value}}</strong>'],
+                template: '<img src="{{image}}" width="50" height="60"/>&nbsp;<strong>{{value}}</strong>',
                 engine: Hogan
             }).on("typeahead:selected", function (e, datum) {
                 $("#search-book").submit();

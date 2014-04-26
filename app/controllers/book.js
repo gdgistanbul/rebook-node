@@ -39,12 +39,11 @@ exports.search = function (req, res) {
 
 exports.categoryBooks = function (req, res) {
 
-    var q = {}
     var category = req.params.slug;
     var limit = req.params.limit;
-
-    if(category)
-        q.category =category
+    var q = {category: category}
+    if(category === "undefined")
+        q = {}
     Book.find(q).limit(limit).skip(0).exec(function (err, data) {
         res.json(data);
     })
@@ -109,4 +108,19 @@ exports.autocomplete = function (req, res) {
                 res.json(data);
             }
         });
+}
+
+exports.bookdetail = function (req, res) {
+    var id = req.params.id;
+    Book.findOne({_id: id}, function(err, data) {
+        if (err) {
+            res.json({"result": false,
+                      "data": false});
+        } else {
+            res.render('book-detail', {
+                "result": true,
+                "book": data
+            });
+        }
+    })
 }
