@@ -18,8 +18,14 @@ module.exports = function (app) {
     router.route(config.appVerUrl + '/books/search')
         .get(controllers.book.search)
 
+    router.route('/')
+        .get(controllers.app.index)
+
     router.route(config.appVerUrl + '/books/categories')
         .get(controllers.book.categories)
+
+    router.route(config.appVerUrl + '/books/autocomplete/:keyword')
+        .get(controllers.book.autocomplete)
 
     router.route(config.appVerUrl + '/books/category/:slug/:limit')
         .get(controllers.book.categoryBooks)

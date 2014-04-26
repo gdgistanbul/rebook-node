@@ -1,0 +1,470 @@
+doctype html
+html(lang='en')
+    //
+       Head BEGIN
+    head
+        meta(charset='utf-8')
+        title Rebook | Share & Sell Your Books
+        meta(content='width=device-width, initial-scale=1.0', name='viewport')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(content='Reebook, Sell or Share your book', name='description')
+        meta(content='rebook, sell book, share book', name='keywords')
+        link(rel='shortcut icon', href='favicon.ico')
+        link(href='/favicon.ico', rel='SHORTCUT ICON', type='image/ico')
+        //
+           Fonts START
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=all', rel='stylesheet', type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=all', rel='stylesheet', type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&subset=all', rel='stylesheet', type='text/css')
+        //
+          - fonts for slider on the index page
+        //
+           Fonts END
+        //
+           Global styles START
+        link(href='assets/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+        link(href='assets/plugins/bootstrap/css/bootstrap.css', rel='stylesheet', type='text/css')
+        //
+           Global styles END
+        //
+           Page level plugin styles START
+        link(href='assets/plugins/fancybox/source/jquery.fancybox.css', rel='stylesheet')
+        link(href='assets/plugins/bxslider/jquery.bxslider.css', rel='stylesheet')
+        link(rel='stylesheet', href='assets/plugins/layerslider/css/layerslider.css', type='text/css')
+        //
+           Page level plugin styles END
+        //
+           Theme styles START
+        link(href='assets/css/style-metronic.css', rel='stylesheet', type='text/css')
+        link(href='assets/css/style.css', rel='stylesheet', type='text/css')
+        link(href='assets/css/style-responsive.css', rel='stylesheet', type='text/css')
+        link(href='assets/css/custom.css', rel='stylesheet', type='text/css')
+        //
+           Theme styles END
+    //
+       Head END
+    body
+        //
+           BEGIN TOP BAR
+        .pre-header
+            .container
+                .row
+                    //
+                       BEGIN TOP BAR LEFT PART
+                    .col-md-6.col-sm-6.additional-shop-info
+                    //
+                       END TOP BAR LEFT PART
+                    //
+                       BEGIN TOP BAR MENU
+                    .col-md-6.col-sm-6.additional-nav
+                        ul.list-unstyled.list-inline.pull-right
+                            li
+                                a(href='login-page.html') Log In
+                    //
+                       END TOP BAR MENU
+        //
+           END TOP BAR
+        //
+           BEGIN HEADER
+        .navbar.header.no-margin(role='navigation')
+            .container
+                .navbar-header
+                    //
+                       BEGIN RESPONSIVE MENU TOGGLER
+                    button.navbar-toggle(data-target='.navbar-collapse', data-toggle='collapse', type='button')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    //
+                       END RESPONSIVE MENU TOGGLER
+                    a.navbar-brand(href='index.html')
+                        img(src='assets/img/rebook-logo.png', alt='ReBook')
+                    //
+                       LOGO
+                //
+                   BEGIN CART
+                .cart-block
+                    .cart-info
+                        a.cart-info-count(href='javascript:void(0);') 3 kitap
+                        a.cart-info-value(href='javascript:void(0);') 10 TL
+                    i.fa.fa-shopping-cart
+                    //
+                       BEGIN CART CONTENT
+                    .cart-content-wrapper
+                        .cart-content
+                            ul.scroller(style='height: 250px;')
+                                li
+                                    a(href='item.html')
+                                        img(src='assets/temp/cart-img.jpg', alt='Rolex Classic Watch', width='37', height='34')
+                                    span.cart-content-count x 1
+                                    strong
+                                        a(href='item.html') Çalıkuşu
+                                    em 2 TL
+                                    a.del-goods(href='javascript:void(0);')
+                                        i.fa.fa-times
+                                li
+                                    a(href='item.html')
+                                        img(src='assets/temp/cart-img.jpg', alt='Rolex Classic Watch', width='37', height='34')
+                                    span.cart-content-count x 1
+                                    strong
+                                        a(href='item.html') Yüzüklerin Efendisi
+                                    em 4 TL
+                                    a.del-goods(href='javascript:void(0);')
+                                        i.fa.fa-times
+                                li
+                                    a(href='item.html')
+                                        img(src='assets/temp/cart-img.jpg', alt='Rolex Classic Watch', width='37', height='34')
+                                    span.cart-content-count x 1
+                                    strong
+                                        a(href='item.html') Game of Thrones
+                                    em 4 TL
+                                    a.del-goods(href='javascript:void(0);')
+                                        i.fa.fa-times
+                            .text-right
+                                a.btn.btn-default(href='shopping-cart.html') View Cart
+                                a.btn.btn-primary(href='checkout.html') Checkout
+                    //
+                       END CART CONTENT
+                //
+                   END CART
+                //
+                   BEGIN NAVIGATION
+                .collapse.navbar-collapse.mega-menu
+                    ul.nav.navbar-nav
+                        li.dropdown
+                            a.dropdown-toggle(data-toggle='dropdown', data-delay='0', data-close-others='false', data-target='product-list.html', href='product-list.html')
+                                | Kategoriler
+                                i.fa.fa-angle-down
+                            //
+                               BEGIN DROPDOWN MENU
+                            ul.dropdown-menu
+                                li
+                                    .nav-content
+                                        //
+                                           BEGIN DROPDOWN MENU - COLUMN
+                                        .nav-content-col
+                                            h3 Footwear
+                                            ul
+                                                li
+                                                    a(href='product-list.html') Astro Trainers
+                                                li
+                                                    a(href='product-list.html') Basketball Shoes
+                                                li
+                                                    a(href='product-list.html') Boots
+                                                li
+                                                    a(href='product-list.html') Canvas Shoes
+                                                li
+                                                    a(href='product-list.html') Football Boots
+                                                li
+                                                    a(href='product-list.html') Golf Shoes
+                                                li
+                                                    a(href='product-list.html') Hi Tops
+                                                li
+                                                    a(href='product-list.html') Indoor and Court Trainers
+                                        //
+                                           END DROPDOWN MENU - COLUMN
+                                        //
+                                           BEGIN DROPDOWN MENU - COLUMN
+                                        .nav-content-col
+                                            h3 Clothing
+                                            ul
+                                                li
+                                                    a(href='product-list.html') Base Layer
+                                                li
+                                                    a(href='product-list.html') Character
+                                                li
+                                                    a(href='product-list.html') Chinos
+                                                li
+                                                    a(href='product-list.html') Combats
+                                                li
+                                                    a(href='product-list.html') Cricket Clothing
+                                                li
+                                                    a(href='product-list.html') Fleeces
+                                                li
+                                                    a(href='product-list.html') Gilets
+                                                li
+                                                    a(href='product-list.html') Golf Tops
+                                        //
+                                           END DROPDOWN MENU - COLUMN
+                                //
+                                 END DROPDOWN MENU
+                        li
+                            a(href='product-list.html') En Son Çıkanlar
+                //
+                   END NAVIGATION
+        //
+           END HEADER
+        //
+           BEGIN MAIN CONTENT
+        .main
+            block content
+        //
+           END MAIN CONTENT
+        //
+           BEGIN PRE-FOOTER
+        .pre-footer
+            .container
+                .row
+                    //
+                       BEGIN BOTTOM ABOUT BLOCK
+                    .col-md-3.col-sm-6.pre-footer-col
+                        h2 About us
+                        p
+                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt
+                            | ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit
+                            | lobortis nisl aliquip commodo consequat.
+                        p Duis autem vel eum iriure dolor vulputate velit esse molestie at dolore.
+                    //
+                       END BOTTOM ABOUT BLOCK
+                    //
+                       BEGIN BOTTOM INFO BLOCK
+                    .col-md-3.col-sm-6.pre-footer-col
+                        h2 Information
+                        ul.list-unstyled
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Delivery Information
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Customer Service
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Order Tracking
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Shipping & Returns
+                            li
+                                i.fa.fa-angle-right
+                                a(href='contacts.html') Contact Us
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Careers
+                            li
+                                i.fa.fa-angle-right
+                                a(href='#') Payment Methods
+                    //
+                       END INFO BLOCK
+                    //
+                       BEGIN TWITTER BLOCK
+                    .col-md-3.col-sm-6.pre-footer-col
+                        h2 Latest Tweets
+                        dl.dl-horizontal.f-twitter
+                            dt
+                                i.fa.fa-twitter
+                            dd
+                                a(href='#') @keenthemes
+                                | Imperdiet condimentum diam dolor lorem sit consectetur adipiscing
+                                span 3 min ago
+                        dl.dl-horizontal.f-twitter
+                            dt
+                                i.fa.fa-twitter
+                            dd
+                                a(href='#') @keenthemes
+                                | Imperdiet condimentum diam dolor lorem sit consectetur adipiscing
+                                span 3 min ago
+                        dl.dl-horizontal.f-twitter
+                            dt
+                                i.fa.fa-twitter
+                            dd
+                                a(href='#') @keenthemes
+                                | Imperdiet condimentum diam dolor lorem sit consectetur adipiscing
+                                span 3 min ago
+                    //
+                       END TWITTER BLOCK
+                    //
+                       BEGIN BOTTOM CONTACTS
+                    .col-md-3.col-sm-6.pre-footer-col
+                        h2 Our Contacts
+                        address.margin-bottom-40
+                            | 35, Lorem Lis Street, Park Ave
+                            br
+                            | California, US
+                            br
+                            | Phone: 300 323 3456
+                            br
+                            | Fax: 300 323 1456
+                            br
+                            | Email:
+                            a(href='mailto:info@metronic.com') info@metronic.com
+                            br
+                            | Skype:
+                            a(href='skype:metronic') metronic
+                    //
+                       END BOTTOM CONTACTS
+                hr
+                .row
+                    //
+                       BEGIN SOCIAL ICONS
+                    .col-md-6.col-sm-6
+                        ul.social-icons
+                            li
+                                a.rss(data-original-title='rss', href='#')
+                            li
+                                a.facebook(data-original-title='facebook', href='#')
+                            li
+                                a.twitter(data-original-title='twitter', href='#')
+                            li
+                                a.googleplus(data-original-title='googleplus', href='#')
+                            li
+                                a.linkedin(data-original-title='linkedin', href='#')
+                            li
+                                a.youtube(data-original-title='youtube', href='#')
+                            li
+                                a.vimeo(data-original-title='vimeo', href='#')
+                            li
+                                a.skype(data-original-title='skype', href='#')
+                    //
+                       END SOCIAL ICONS
+                    //
+                       BEGIN NEWLETTER
+                    .col-md-6.col-sm-6
+                        .pre-footer-subscribe-box.pull-right
+                            h2 Newsletter
+                            form(action='#')
+                                .input-group
+                                    input.form-control(type='text', placeholder='youremail@mail.com')
+                                    span.input-group-btn
+                                        button.btn.btn-primary(type='submit') Subscribe
+                    //
+                       END NEWLETTER
+        //
+           END PRE-FOOTER
+        //
+           BEGIN FOOTER
+        .footer.padding-top-15
+            .container
+                .row
+                    //
+                       BEGIN COPYRIGHT
+                    .col-md-6.col-sm-6.padding-top-10
+                        | 2014 © ReBook, All rights are reserved.
+                    //
+                       END COPYRIGHT
+                    //
+                       BEGIN PAYMENTS
+                    .col-md-6.col-sm-6
+                        ul.list-unstyled.list-inline.pull-right.margin-bottom-15
+                            li
+                                img(src='assets/img/payments/PayPal.jpg', alt='We accept PayPal', title='We accept PayPal')
+                    //
+                       END PAYMENTS
+        //
+           END FOOTER
+        //
+           BEGIN fast view of a product
+        #product-pop-up(style='display: none; width: 700px;')
+            .product-page.product-pop-up
+                .row
+                    .col-md-6.col-sm-6.col-xs-3
+                        .product-main-image
+                            img.img-responsive(src='assets/temp/products/model7.jpg', alt='Cool green dress with red bell')
+                        .product-other-images
+                            a.active(href='#')
+                                img(alt='Berry Lace Dress', src='assets/temp/products/model3.jpg')
+                            a(href='#')
+                                img(alt='Berry Lace Dress', src='assets/temp/products/model4.jpg')
+                            a(href='#')
+                                img(alt='Berry Lace Dress', src='assets/temp/products/model5.jpg')
+                    .col-md-6.col-sm-6.col-xs-9
+                        h1 Cool green dress with red bell
+                        .price-availability-block.clearfix
+                            .price
+                                strong
+                                    span $
+                                    | 47.00
+                                em
+                                    | $
+                                    span 62.00
+                            .availability
+                                | Availability:
+                                strong In Stock
+                        .description
+                            p
+                                | Lorem ipsum dolor ut sit ame dolore adipiscing elit, sed nonumy nibh sed euismod laoreet dolore
+                                | magna aliquarm erat volutpat
+                                | Nostrud duis molestie at dolore.
+                        .product-page-options
+                            .pull-left
+                                label.control-label Size:
+                                select.form-control.input-sm
+                                    option L
+                                    option M
+                                    option XL
+                            .pull-left
+                                label.control-label Color:
+                                select.form-control.input-sm
+                                    option Red
+                                    option Blue
+                                    option Black
+                        .product-page-cart
+                            .product-quantity
+                                input#product-quantity.form-control.input-sm(type='text', value='1', readonly='readonly', name='product-quantity')
+                            button.btn.btn-primary(type='submit') Add to cart
+                            button.btn.btn-default(type='submit') More details
+                    .sticker.sticker-sale
+        //
+           END fast view of a product
+        script.
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-50168290-1', 'eksikitaplik.com');
+            ga('send', 'pageview');
+        //
+           Load javascripts at bottom, this will reduce page load time
+        //
+           BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES)
+        //if lt IE 9
+          script(src='assets/plugins/respond.min.js')
+        script(src='assets/plugins/jquery-1.10.2.min.js', type='text/javascript')
+        script(src='assets/plugins/jquery-migrate-1.2.1.min.js', type='text/javascript')
+        script(src='assets/plugins/bootstrap/js/bootstrap.min.js', type='text/javascript')
+        script(type='text/javascript', src='assets/plugins/back-to-top.js')
+        script(type='text/javascript', src='assets/plugins/jQuery-slimScroll/jquery.slimscroll.min.js')
+        //
+           END CORE PLUGINS
+        //
+           BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE)
+        script(type='text/javascript', src='assets/plugins/fancybox/source/jquery.fancybox.pack.js')
+        //
+           pop up
+        script(type='text/javascript', src='assets/plugins/bxslider/jquery.bxslider.min.js')
+        //
+           slider for products
+        script(type='text/javascript', src='assets/plugins/zoom/jquery.zoom.min.js')
+        //
+           product zoom
+        script(src='assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js', type='text/javascript')
+        //
+           Quantity
+        //
+           BEGIN LayerSlider
+        script(src='assets/plugins/layerslider/jQuery/jquery-easing-1.3.js', type='text/javascript')
+        script(src='assets/plugins/layerslider/jQuery/jquery-transit-modified.js', type='text/javascript')
+        script(src='assets/plugins/layerslider/js/layerslider.transitions.js', type='text/javascript')
+        script(src='assets/plugins/layerslider/js/layerslider.kreaturamedia.jquery.js', type='text/javascript')
+        script(src='/assets/plugins/bootstrap/js/bootstrap2-typeahead.min.js', type='text/javascript')
+        script(src='http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.min.js', type='text/javascript')
+        //
+           END LayerSlider
+        script(type='text/javascript', src='assets/scripts/app.js')
+        script(type='text/javascript', src='assets/scripts/index.js')
+        script(type='text/javascript').
+            jQuery(document).ready(function() {
+                App.init();
+                App.initBxSlider();
+                Index.initLayerSlider();
+                App.initImageZoom();
+                App.initTouchspin();
+            });
+        //
+           END PAGE LEVEL JAVASCRIPTS

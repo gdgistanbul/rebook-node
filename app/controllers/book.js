@@ -86,3 +86,22 @@ exports.findOne = function (req, res) {
         }
     })
 }
+
+exports.autocomplete = function (req, res) {
+    var keyword = req.params.keyword;
+    var regexKeyword = new RegExp(keyword);
+    Book.find({title: regexKeyword})
+        .limit(20)
+        .exec( function( err, data ) {
+            if ( err ) {
+                console.log("Couldn't get recent books: " + err);
+                res.json({
+                   "result": false,
+                   "data": "Error occured on autocomplete"
+                });
+            } else {
+                console.log(keyword);
+                res.json(data);
+            }
+        });
+}

@@ -1,0 +1,31 @@
+extends layout
+block content
+    .container
+        .row.margin-bottom-40
+            .col-md-12.col-sm-12
+                form(action='#')
+                    .input-group
+                        input.form-control(type='text', placeholder='Kitap Adı ya da ISBN giriniz', id='search-book')
+                        span.input-group-btn
+                            button.btn.btn-primary(type='submit') Ara
+        //
+           MOST RECENT BOOKS
+        .row.margin-bottom-40
+            .col-md-12.sale-product
+                h2 En son çıkan kitaplar
+                .bxslider-wrapper
+                    ul.bxslider(data-slides-phone='1', data-slides-tablet='2', data-slides-desktop='5', data-slide-margin='15')
+                        each book, i in recentBooks
+                            li
+                                .product-item
+                                    .pi-img-wrapper
+                                        img.img-responsive(src='#{book.imgName}', alt='#{book.title}')
+                                    h3
+                                        a(href='item.html') #{book.title}
+                                    .pi-price 10 TL
+                                    a.btn.btn-default.add2cart(href='#') Sepete Ekle
+                                    .sticker.sticker-sale
+        //
+           END MOST RECENT BOOKS
+
+
