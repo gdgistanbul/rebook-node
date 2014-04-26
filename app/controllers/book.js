@@ -105,3 +105,18 @@ exports.autocomplete = function (req, res) {
             }
         });
 }
+
+exports.bookdetail = function (req, res) {
+    var id = req.params.id;
+    Book.findOne({_id: id}, function(err, data) {
+        if (err) {
+            res.json({"result": false,
+                      "data": false});
+        } else {
+            res.render('book-detail', {
+                "result": true,
+                "book": data
+            });
+        }
+    })
+}

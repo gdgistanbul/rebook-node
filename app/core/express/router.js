@@ -33,6 +33,9 @@ module.exports = function (app) {
     router.route(config.appVerUrl + '/books/:id')
         .get(controllers.book.findOne)
 
+    router.route('/bookdetail/:id')
+        .get(controllers.book.bookdetail)
+
     router.route(config.appVerUrl + '/logout')
         .get(controllers.user.logout)
 

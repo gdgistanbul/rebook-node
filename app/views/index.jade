@@ -19,9 +19,9 @@ block content
                             li
                                 .product-item
                                     .pi-img-wrapper
-                                        img.img-responsive(src='#{book.imgName}', alt='#{book.title}')
+                                        img.img-responsive(src='#{book.imgPath}', alt='#{book.title}')
                                     h3
-                                        a(href='item.html') #{book.title}
+                                        a(href='/bookdetail/#{book._id}') #{book.title}
                                     .pi-price 10 TL
                                     a.btn.btn-default.add2cart(href='#') Sepete Ekle
                                     .sticker.sticker-sale

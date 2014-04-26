@@ -21,7 +21,7 @@ var Book = new mongoose.Schema({
     }
 })
 
-Books.virtual('imgPath')
+Book.virtual('imgPath')
     .get(function(){
         return 'http://162.243.9.237/rebook/'+ this.imgName
     })

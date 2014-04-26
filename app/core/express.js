@@ -19,5 +19,6 @@ module.exports = function (app) {
     app.use(bodyParser())
     app.set('view engine', 'jade')
     app.set('views', process.cwd() + '/app/views')
+    app.use(require('./express/view'))
     require('./express/router')(app)
 }
