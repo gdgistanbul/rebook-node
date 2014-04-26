@@ -38,12 +38,11 @@ exports.search = function (req, res) {
 
 exports.categoryBooks = function (req, res) {
 
-    var q = {}
     var category = req.params.slug;
     var limit = req.params.limit;
-
-    if(category)
-        q.category =category
+    var q = {category: category}
+    if(category === "undefined")
+        q = {}
     Book.find(q).limit(limit).skip(0).exec(function (err, data) {
         res.json(data);
     })
