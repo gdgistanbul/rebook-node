@@ -36,6 +36,15 @@ exports.search = function (req, res) {
     }
 }
 
+exports.categoryBooks = function (req, res) {
+    var category = req.params.slug;
+    var limit = req.params.limit;
+
+    Book.find({category: category}).limit(limit).skip(0).exec(function(err, data) {
+        res.json(data);
+    })
+}
+
 exports.categories = function (req, res) {
     res.json({
         'aile': 'Aile',
