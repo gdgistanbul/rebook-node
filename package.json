@@ -1,0 +1,15 @@
+{
+  "name": "rebook-node",
+  "version": "0.0.0",
+  "description": "rebook-node",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdgistanbul/rebook-node.git"
+  },
+  "dependencies": {
+    "config": "^0.4.35",
+    "express": "^4.1.0",
+    "mongoose": "^3.8.8"
+  }
+}
