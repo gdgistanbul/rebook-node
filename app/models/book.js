@@ -21,6 +21,11 @@ var Book = new mongoose.Schema({
     }
 })
 
+Books.virtual('imgPath')
+    .get(function(){
+        return 'http://162.243.9.237/rebook/'+ this.imgName
+    })
+
 Book.options.toJSON = {
     transform: function (doc, ret, options) {
         'providers'.split(' ')
