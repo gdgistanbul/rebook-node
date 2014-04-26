@@ -31,31 +31,31 @@ exports.search = function (req, res) {
 
 exports.categories = function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
-    res.json([
-        {'aile': 'Aile'},
-        {'akademik': 'Akademik'},
-        {'bilgisayar': 'Bilgisayar'},
-        {'bilim-ve-teknoloji': 'Bilim ve Teknoloji'},
-        {'cocuk': 'Çocuk'},
-        {'din-ve-mioloji': 'Din ve Mitoloji'},
-        {'edebiyat': 'Edebiyat'},
-        {'dunya-edebiyati': 'Dünya Edebiyatı'},
-        {'turk-edebiyati': 'Türk Edebiyatı'},
-        {'yabanci-dil-edebiyati': 'Yabancı Dil'},
-        {'egitim': 'Eğitim'},
-        {'eglence': 'Eğlence'},
-        {'ekonomi': 'Ekonomi'},
-        {'felsefe': 'Felsefe'},
-        {'genel': 'Genel'},
-        {'hobi': 'Hobi'},
-        {'sosyoloji': 'Sosyoloji'},
-        {'islam': 'İslam'},
-        {'müzik': 'Müzik'},
-        {'politika': 'Politika'},
-        {'saglik': 'Sağlık'},
-        {'referans': 'Referans'},
-        {'sanat': 'Sanat'},
-        {'siir': 'Şiir'},
-        {'tarih': 'Tarih'}
-    ])
+    res.json({
+        'aile': 'Aile',
+        'akademik': 'Akademik',
+        'bilgisayar': 'Bilgisayar',
+        'bilim-ve-teknoloji': 'Bilim ve Teknoloji',
+        'cocuk': 'Çocuk',
+        'din-ve-mioloji': 'Din ve Mitoloji',
+        'edebiyat': 'Edebiyat',
+        'dunya-edebiyati': 'Dünya Edebiyatı',
+        'turk-edebiyati': 'Türk Edebiyatı',
+        'yabanci-dil-edebiyati': 'Yabancı Dil',
+        'egitim': 'Eğitim',
+        'eglence': 'Eğlence',
+        'ekonomi': 'Ekonomi',
+        'felsefe': 'Felsefe',
+        'genel': 'Genel',
+        'hobi': 'Hobi',
+        'sosyoloji': 'Sosyoloji',
+        'islam': 'İslam',
+        'müzik': 'Müzik',
+        'politika': 'Politika',
+        'saglik': 'Sağlık',
+        'referans': 'Referans',
+        'sanat': 'Sanat',
+        'siir': 'Şiir',
+        'tarih': 'Tarih'
+    })
 }
