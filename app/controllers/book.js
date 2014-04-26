@@ -3,7 +3,6 @@ var mongoose = require('mongoose')
     , reg = new RegExp(/^\d+$/)
 
 exports.search = function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
     var q = req.query.q
     if (reg.test(q) && q.length == 13) {
         Book.findOne({isbn: q}).exec(function (err, result) {
@@ -38,7 +37,6 @@ exports.search = function (req, res) {
 }
 
 exports.categories = function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
     res.json({
         'aile': 'Aile',
         'akademik': 'Akademik',
@@ -65,5 +63,17 @@ exports.categories = function (req, res) {
         'sanat': 'Sanat',
         'siir': 'Şiir',
         'tarih': 'Tarih'
+    })
+}
+
+exports.findOne = function (req, res) {
+    Book.findOne({_id: req.params.id}).exec(function (err, result) {
+        if (err) {
+            res.status(400)
+            res.json({error: err.message})
+        }
+        else {
+            res.json(result)
+        }
     })
 }

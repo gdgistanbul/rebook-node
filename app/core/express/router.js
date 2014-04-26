@@ -21,9 +21,11 @@ module.exports = function (app) {
     router.route(config.appVerUrl + '/books/categories')
         .get(controllers.book.categories)
 
+    router.route(config.appVerUrl + '/books/:id')
+        .get(controllers.book.findOne)
+
     router.route(config.appVerUrl + '/logout')
         .get(controllers.user.logout)
-
 
     router.route(config.appVerUrl + '/auth/google')
         .get(passport.authenticate('google', { failureRedirect: '/', scope: [
