@@ -32,7 +32,6 @@ Book.options.toJSON = {
             .forEach(function (e) {
                 delete ret[e]
             })
-
         ret.description = ret.description.replace(/\r/g, '').replace(/\t/g, '').replace(/\n/g, '')
         ret.imgName = 'http://162.243.9.237/rebook/'+ ret.imgName
         return ret;
