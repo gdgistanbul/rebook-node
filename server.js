@@ -2,6 +2,7 @@ var app = require('express')(),
     config = require('config')
 
 require('./app/core/mongoose')
+require('./app/core/passport')()
 require('./app/core/express')(app)
 
 app.listen(config.port, function (err) {

@@ -27,14 +27,14 @@ module.exports = function (app) {
     router.route(config.appVerUrl + '/logout')
         .get(controllers.user.logout)
 
-    router.route(config.appVerUrl + '/auth/google')
+    router.route('/auth/google')
         .get(passport.authenticate('google', { failureRedirect: '/', scope: [
             'https://www.googleapis.com/auth/userinfo.profile',
             'https://www.googleapis.com/auth/userinfo.email'
         ] }), controllers.user.signin)
 
 
-    router.route(config.appVerUrl + '/auth/google/callback')
+    router.route('/auth/google/callback')
         .get(passport.authenticate('google', { failureRedirect: '/'}), controllers.user.authCallback)
 
     router.route('*').all(controllers.app.notFound)

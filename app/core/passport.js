@@ -1,8 +1,10 @@
 var mongoose = require('mongoose')
+    , config = require('config')
+    , passport = require('passport')
     , GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
     , User = mongoose.model('User')
 
-module.exports = function (passport, config) {
+module.exports = function () {
     passport.serializeUser(function (user, done) {
         done(null, user.id)
     })
