@@ -9,7 +9,7 @@ exports.search = function (req, res) {
         Book.findOne({isbn: q}).exec(function (err, result) {
             if (err) {
                 res.status(400)
-                res.json({error: err})
+                res.json({error: err.message})
             }
             else {
                 res.json(result)
@@ -17,15 +17,23 @@ exports.search = function (req, res) {
         })
     }
     else {
-        Book.search({query: q}, {hydrate: true}, function (err, results) {
-            if (err) {
-                res.status(400)
-                res.json({error: err})
+        Book.search({
+                query: {
+                    fuzzy_like_this: { like_text: q }
+                },
+                size: 1 }
+            , {
+                hydrate: true
             }
-            else {
-                res.json(result)
-            }
-        })
+            , function (err, result) {
+                if (err) {
+                    res.status(400)
+                    res.json({error: err.message})
+                }
+                else {
+                    res.json(result)
+                }
+            })
     }
 }
 
