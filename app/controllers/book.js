@@ -28,6 +28,7 @@ exports.search = function (req, res) {
                 if (err) {
                     res.status(400)
                     res.json({error: err.message})
+
                 }
                 else {
                     res.json(result)
