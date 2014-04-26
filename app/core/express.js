@@ -1,18 +1,18 @@
 var express = require('express')
     , config = require('config')
-    , expressSession = require('express-session')
+    , cookieParser = require('cookie-parser')
+    , session = require('express-session')
     , bodyParser = require('body-parser')
     , passport = require('passport')
-    , MongoStore = require('connect-mongo')(express);
+    , redis = require('redis')
+    , sessionStore = require('connect-redis')(session);
 
 module.exports = function (app) {
     app.use(express.static(process.cwd() + '/public'))
-    app.use(expressSession({
+    app.use(cookieParser())
+    app.use(session({
         secret: 'myHighSecurePassword',
-        store: new MongoStore({
-            url: config.mongodb.url,
-            collection: 'sessions'
-        })
+        store: new sessionStore({url:config.redis.url})
     }))
     app.use(passport.initialize())
     app.use(passport.session())
