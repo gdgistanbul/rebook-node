@@ -37,10 +37,14 @@ exports.search = function (req, res) {
 }
 
 exports.categoryBooks = function (req, res) {
+
+    var q = {}
     var category = req.params.slug;
     var limit = req.params.limit;
 
-    Book.find({category: category}).limit(limit).skip(0).exec(function(err, data) {
+    if(category)
+        q.category =category
+    Book.find(q).limit(limit).skip(0).exec(function (err, data) {
         res.json(data);
     })
 }
@@ -92,12 +96,12 @@ exports.autocomplete = function (req, res) {
     var regexKeyword = new RegExp(keyword);
     Book.find({title: regexKeyword})
         .limit(20)
-        .exec( function( err, data ) {
-            if ( err ) {
+        .exec(function (err, data) {
+            if (err) {
                 console.log("Couldn't get recent books: " + err);
                 res.json({
-                   "result": false,
-                   "data": "Error occured on autocomplete"
+                    "result": false,
+                    "data": "Error occured on autocomplete"
                 });
             } else {
                 console.log(keyword);
