@@ -1,8 +1,9 @@
 var mongoose = require('mongoose')
+    , mongoosastic = require('mongoosastic')
 
 var Book = new mongoose.Schema({
     isbn: String,
-    title: String,
+    title: {type: String, es_indexed: true},
     slug: String,
     description: String,
     publishingDate: String,
@@ -31,6 +32,15 @@ Book.options.toJSON = {
         return ret;
     }
 }
+
+Book.plugin(mongoosastic, {
+    index: 'themesearch',
+    type: 'books',
+    host: 'api.searchbox.io',
+    port: '80',
+    auth: '780ff67c7d6a2565093817d1aa774000',
+    protocol: 'http'
+})
 
 
 mongoose.model('Book', Book, 'books')

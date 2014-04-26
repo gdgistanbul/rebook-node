@@ -10,6 +10,7 @@
   "dependencies": {
     "config": "^0.4.35",
     "express": "^4.1.0",
-    "mongoose": "^3.8.8"
+    "mongoose": "^3.8.8",
+    "mongoosastic": "^0.2.6"
   }
 }
