@@ -2,7 +2,6 @@ var mongoose = require('mongoose')
     , Book = mongoose.model('Book')
     , User = mongoose.model('User')
     , reg = new RegExp(/^\d+$/)
-    , curl = require('curlrequest')
 
 exports.search = function (req, res) {
     var q = req.query.q

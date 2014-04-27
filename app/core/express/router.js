@@ -32,7 +32,7 @@ module.exports = function (app) {
     router.route('/dashboard')
         .get(controllers.app.dashboard)
     router.route('/mybooks')
-        .get(controllers.app.mybooks)
+        .get(controllers.user.mybooks)
     router.route('/boughts')
         .get(controllers.app.boughts)
 
