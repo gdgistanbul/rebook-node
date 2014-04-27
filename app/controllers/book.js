@@ -51,6 +51,19 @@ exports.categoryBooks = function (req, res) {
     })
 }
 
+exports.categoryBooksRender = function (req, res) {
+    var category = req.params.name;
+    var limit = req.params.limit || 50;
+    var q = {category: category}
+    if (category === "undefined")
+        q = {}
+    Book.find(q).limit(limit).skip(0).exec(function (err, data) {
+        res.render('index', {
+            "recentBooks": data
+        });
+    })
+}
+
 exports.categories = function (req, res) {
     res.json({
         'aile': 'Aile',

@@ -29,6 +29,11 @@ module.exports = function (app) {
 
     router.route(config.appVerUrl + '/books/category/:slug/:limit')
         .get(controllers.book.categoryBooks)
+
+    router.route('/category/:name')
+        .get(controllers.book.categoryBooksRender)
+
+
     router.route('/dashboard')
         .get(controllers.app.dashboard)
     router.route('/mybooks')
