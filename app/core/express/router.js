@@ -37,6 +37,8 @@ module.exports = function (app) {
         .get(controllers.user.mybooksjson)
     router.route('/boughts')
         .get(controllers.app.boughts)
+    router.route('/paypal/:status')
+        .get(controllers.app.paypalcallback)
 
     router.route(config.appVerUrl + '/books/:id')
         .get(controllers.book.findOne)
