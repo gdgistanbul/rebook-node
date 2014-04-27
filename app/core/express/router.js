@@ -33,6 +33,8 @@ module.exports = function (app) {
         .get(controllers.app.dashboard)
     router.route('/mybooks')
         .get(controllers.user.mybooks)
+    router.route('/1/mybooks')
+        .get(controllers.user.mybooksjson)
     router.route('/boughts')
         .get(controllers.app.boughts)
     router.route('/paypal/:status')

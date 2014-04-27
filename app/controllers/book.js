@@ -89,6 +89,7 @@ exports.findOne = function (req, res) {
                 "data": false});
         } else {
             User.findOne({"books.bookId": id}, function (err, userData) {
+                data = data.toJSON()
                 data.amount = -1
                 if (userData) {
                     var amount = userData.books.filter(function (e) {
