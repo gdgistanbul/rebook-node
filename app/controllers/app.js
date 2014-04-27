@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
     , Book = mongoose.model('Book')
+    , User = mongoose.model('User')
     , url = require('url')
     , Paypal = require('../core/paypal');
 
@@ -42,10 +43,14 @@ exports.paypalcallback = function (req, res) {
     /*Paypal.execPayment(payerID, pID, function() {
 
     });*/
-
-    res.render("paypal-" + status, {
-        status: status,
-        page: page,
-        savedTree: savedTree
-    });
+    User.update({_id: user, "books.bookId": bookID},
+                {$set: {"books.$.isSold": true}},
+        function(err) {
+            res.render("paypal-" + status, {
+                status: status,
+                page: page,
+                savedTree: savedTree
+            });
+        }
+    )
 }

@@ -7,24 +7,13 @@ block content
             .sidebar.col-md-3.col-sm-5
                 .sidebar-products.clearfix
                     h2 İlgili Kitaplar
-                    //.item
-                        a(href='item.html')
-                            img(src='/assets/temp/products/k1.jpg', alt='Some Shoes in Animal with Cut Out')
-                        h3
-                            a(href='item.html') Some Shoes in Animal with Cut Out
-                        .price $31.00
-                    //.item
-                        a(href='item.html')
-                            img(src='/assets/temp/products/k4.jpg', alt='Some Shoes in Animal with Cut Out')
-                        h3
-                            a(href='item.html') Some Shoes in Animal with Cut Out
-                        .price $23.00
-                    //.item
-                        a(href='item.html')
-                            img(src='/assets/temp/products/k3.jpg', alt='Some Shoes in Animal with Cut Out')
-                        h3
-                            a(href='item.html') Some Shoes in Animal with Cut Out
-                        .price $86.00
+                    each relatedBook, i in relatedBooks
+                        .item
+                            a(href='item.html')
+                                img(src='#{relatedBook.imgPath}', alt='#{relatedBook.title}')
+                            h3
+                                a(href='/bookdetail/#{relatedBook._id}') #{relatedBook.title}
+                            .price 3 TL
             //
                END SIDEBAR
             //
@@ -48,6 +37,8 @@ block content
                                             | #{amount}
                                 .product-page-cart
                                     button.btn.btn-primary(type='submit', onclick='window.location = "#{url}"') Paypal ile Öde
+                            .product-page-cart
+                                button.btn.btn-primary(type='submit', onclick='window.location = "#{url}"') Bu kitabı satabilirim
                             ul.social-icons
                                 li
                                     a.facebook(data-original-title='facebook', href='#')
