@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
     , Book = mongoose.model('Book')
+    , User = mongoose.model('User')
     , url = require('url')
     , Paypal = require('../core/paypal');
 
