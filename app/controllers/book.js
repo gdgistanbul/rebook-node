@@ -41,7 +41,6 @@ exports.search = function (req, res) {
 }
 
 exports.categoryBooks = function (req, res) {
-
     var category = req.params.slug;
     var limit = req.params.limit;
     var q = {category: category}
@@ -120,17 +119,18 @@ exports.bookdetail = function (req, res) {
             res.json({"result": false,
                 "data": false});
         } else {
-            User.findOne({"books.bookId": id}, function(err, userData) {
+            User.findOne({"books.bookId": id}, function (err, userData) {
                 if (userData) {
-                    var amount = userData.books.filter(function(e) {
-                       return e.bookId == id;
+                    var amount = userData.books.filter(function (e) {
+                        return e.bookId == id;
                     })[0].amount;
-                    Paypal.createPayment(userData.email, amount, data.title, config.paypal.cancel_url, config.paypal.return_url, function(err, result) {
+                    Paypal.createPayment(userData.email, amount, data.title, config.paypal.cancel_url, config.paypal.return_url, function (err, result) {
                         console.log(err, result);
                         res.render('book-detail', {
                             "result": true,
                             "url": result,
-                            "book": data
+                            "book": data,
+                            "amount": amount
                         });
                     });
                 } else {
@@ -148,15 +148,13 @@ exports.bookdetail = function (req, res) {
 
 exports.addprice = function (req, res) {
     var bookId = req.body.bookid;
-    var userId = req.user._id || '535ca1325dc5a60b004c3f0f';
+    var userId = req.user ? req.user._id : '535ca1325dc5a60b004c3f0f';
     var amount = req.body.amount;
-
     User.findOneAndUpdate({_id: userId, "books.bookId": {$ne: bookId}}, {$addToSet: {books: {bookId: bookId, amount: amount} }}, function (errBook, user) {
-        console.log(user);
-        if (errBook) {
-            res.json({data: "Book not found", type: false});
-        } else {
+        if (!errBook && user) {
             res.json({data: "Book price saved", type: true});
+        } else {
+            res.json({data: "Book not found", type: false});
         }
     });
 }

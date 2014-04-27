@@ -5,6 +5,7 @@ var request = require('request')
     , options = {
         headers: {
             'Content-type': 'application/json',
+            'Accept' : 'application/json',
             'Authorization': ''
         }
     }
@@ -48,7 +49,6 @@ PayPal.prototype.createPayment = function (email, amount, desc, cancelUrl, retur
             "payment_method": "paypal"
         },
         "intent": "sale",
-        "subject": email || 'kayahalil@gmail.com',
         "redirect_urls": {
             "cancel_url": cancelUrl,
             "return_url": returnUrl
@@ -60,7 +60,7 @@ PayPal.prototype.createPayment = function (email, amount, desc, cancelUrl, retur
         url: 'https://api.sandbox.paypal.com/v1/payments/payment',
         body: JSON.stringify(data)
     }, options), function (err, response, body) {
-        if (!err && response.statusCode == 200) {
+        if (!err && response.statusCode == 201) {
             try {
                 body = JSON.parse(body)
             }
@@ -72,7 +72,7 @@ PayPal.prototype.createPayment = function (email, amount, desc, cancelUrl, retur
             })[0].href
             cb(null, url)
         } else {
-            cb(new Error('parsing error'))
+            cb(new Error('code error'))
         }
     })
 }
