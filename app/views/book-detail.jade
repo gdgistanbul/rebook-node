@@ -38,7 +38,7 @@ block content
                                 .product-page-cart
                                     button.btn.btn-primary(type='submit', onclick='window.location = "#{url}"') Paypal ile Öde
                             .product-page-cart
-                                button.btn.btn-primary(type='submit', onclick='window.location = "#{url}"') Bu kitabı satabilirim
+                                button.btn.btn-primary(type='submit', data-id='#{book._id}' id='buyBook') Bu kitabı satabilirim
                             ul.social-icons
                                 li
                                     a.facebook(data-original-title='facebook', href='#')

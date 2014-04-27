@@ -34,6 +34,29 @@ var App = function () {
         }
     }
 
+    var handleBuyBook = function() {
+        if (typeof $("#buyBook").val() != 'undefined') {
+            $("#buyBook").on("click", function() {
+                var bookId = $(this).data("id");
+                var retVal = prompt("Fiyat giriniz", "Fiyat");
+                if (retVal == parseFloat(retVal)) {
+                    $.ajax({
+                        url: "/1/books/addprice",
+                        data: "bookid=" + bookId + "&amount=" + retVal,
+                        type: "POST",
+                        success: function(response) {
+                            if (response.type) {
+                                window.location = "/mybooks";
+                            }
+                        }
+                    });
+                } else {
+                    alert("Fiyat sadece rakamlardan oluşmalıdır");
+                }
+            });
+        }
+    }
+
     var handleAutocomplete = function() {
         if (typeof $(".search-book").val() != 'undefined') {
             $('.search-book').typeahead({
@@ -282,6 +305,7 @@ var App = function () {
             handleMenu();
             handleScrollers();
             handleAutocomplete();
+            handleBuyBook();
 
             this.addResponsiveHandler(function(){ 
                 App.initBxSlider(true);
