@@ -1,6 +1,7 @@
 var app = require('express')(),
     config = require('config')
 
+require('./app/core/paypal').init()
 require('./app/core/mongoose')
 require('./app/core/passport')()
 require('./app/core/express')(app)
