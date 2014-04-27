@@ -24,7 +24,6 @@ exports.dashboard = function (req, res) {
     res.render("dashboard", {});
 }
 
-
 exports.boughts = function (req, res) {
     res.render("boughts", {});
 }

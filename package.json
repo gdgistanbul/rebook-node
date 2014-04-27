@@ -2,7 +2,9 @@
   "name": "rebook-node",
   "version": "0.0.0",
   "description": "rebook-node",
-  "main": "server.js",
+  "scripts": {
+    "main": "./node_modules/.bin/supervisor server.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gdgistanbul/rebook-node.git"
@@ -23,6 +25,7 @@
     "async": "^0.7.0",
     "request": "^2.34.0",
     "underscore": "^1.6.0",
-    "anglicize": "0.0.5"
+    "anglicize": "0.0.5",
+    "supervisor": "^0.6.0"
   }
 }

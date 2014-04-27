@@ -47,5 +47,4 @@ Book.plugin(mongoosastic, {
     protocol: 'http'
 })
 
-
 mongoose.model('Book', Book, 'books')
