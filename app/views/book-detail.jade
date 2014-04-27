@@ -40,13 +40,14 @@ block content
                             .description
                                 p
                                     | !{book.description}
-                            .price-availability-block.clearfix
-                                .price
-                                    strong
-                                        span $
-                                        | 10.00
-                            .product-page-cart
-                                button.btn.btn-primary(type='submit') Paypal ile Öde
+                            if (url)
+                                .price-availability-block.clearfix
+                                    .price
+                                        strong
+                                            span $
+                                            | 10.00
+                                .product-page-cart
+                                    button.btn.btn-primary(type='submit', onclick='window.location = "#{url}"') Paypal ile Öde
                             ul.social-icons
                                 li
                                     a.facebook(data-original-title='facebook', href='#')

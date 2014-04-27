@@ -1,6 +1,8 @@
 var mongoose = require('mongoose')
     , Book = mongoose.model('Book')
     , User = mongoose.model('User')
+    , config = require('config')
+    , Paypal = require('../core/paypal')
     , reg = new RegExp(/^\d+$/)
 
 exports.search = function (req, res) {
@@ -118,10 +120,28 @@ exports.bookdetail = function (req, res) {
             res.json({"result": false,
                       "data": false});
         } else {
-            res.render('book-detail', {
-                "result": true,
-                "book": data
+            User.findOne({"books.bookId": id}, function(err, userData) {
+                if (userData) {
+                    var amount = userData.books.filter(function(e) {
+                       return e.bookId == id;
+                    })[0].amount;
+                    Paypal.createPayment(userData.email, amount, data.title, config.paypal.cancel_url, config.paypal.return_url, function(err, result) {
+                        console.log(err, result);
+                        res.render('book-detail', {
+                            "result": true,
+                            "url": result,
+                            "book": data
+                        });
+                    });
+                } else {
+                    res.render('book-detail', {
+                        "result": true,
+                        "url": null,
+                        "book": data
+                    });
+                }
             });
+
         }
     })
 }

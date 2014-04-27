@@ -41,46 +41,25 @@ block content
                                     th.shopping-cart-description Kitap Adı
                                     th.shopping-cart-ref-no ISBN
                                     th.shopping-cart-price(colspan='2') Fiyat
-                                tr
-                                    td.shopping-cart-image
-                                        a(href='#')
-                                            img(src='assets/temp/products/model3.jpg', alt='Berry Lace Dress')
-                                    td.shopping-cart-description
-                                        h3
-                                            a(href='#') Cool green dress with red bell
-                                        p
-                                            strong Item 1
-                                            | - Color: Green; Size: S
-                                        em More info is here
-                                    td.shopping-cart-ref-no
-                                        | javc2133
-                                    td.shopping-cart-total
-                                        strong
-                                            span $
-                                            | 47.00
-                                    td.del-goods-col
-                                        a.del-goods(href='#')
-                                            i.fa.fa-times
-                                tr
-                                    td.shopping-cart-image
-                                        a(href='#')
-                                            img(src='assets/temp/products/model4.jpg', alt='Berry Lace Dress')
-                                    td.shopping-cart-description
-                                        h3
-                                            a(href='#') Cool green dress with red bell
-                                        p
-                                            strong Item 1
-                                            | - Color: Green; Size: S
-                                        em More info is here
-                                    td.shopping-cart-ref-no
-                                        | javc2133
-                                    td.shopping-cart-total
-                                        strong
-                                            span $
-                                            | 47.00
-                                    td.del-goods-col
-                                        a.del-goods(href='#')
-                                            i.fa.fa-times
+                                each book, i in myBooks
+                                    tr
+                                        td.shopping-cart-image
+                                            a(href='/bookdetail/#{book.bookId._id}')
+                                                img(src='#{book.bookId.imgPath}', alt='#{book.bookId.title}')
+                                        td.shopping-cart-description
+                                            h3
+                                                a(href='/bookdetail/#{book.bookId._id}') #{book.bookId.title}
+                                            p
+                                                | !{book.bookId.description}
+                                        td.shopping-cart-ref-no
+                                            | !{book.bookId.isbn}
+                                        td.shopping-cart-total
+                                            strong
+                                                span TL
+                                                | !{book.amount}
+                                        td.del-goods-col
+                                            a.del-goods(href='#')
+                                                i.fa.fa-times
                         .shopping-total
                             ul
                                 li

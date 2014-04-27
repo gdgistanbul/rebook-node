@@ -1,6 +1,7 @@
 var request = require('request')
     , config = require('config')
     , _ = require('underscore')
+    , anglicize = require('anglicize')
     , options = {
         headers: {
             'Content-type': 'application/json',
@@ -40,7 +41,7 @@ PayPal.prototype.createPayment = function (email, amount, desc, cancelUrl, retur
                     "currency": "USD",
                     "total": amount
                 },
-                "description": desc
+                "description": anglicize(desc)
             }
         ],
         "payer": {

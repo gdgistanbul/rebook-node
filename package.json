@@ -23,6 +23,7 @@
     "async": "^0.7.0",
     "curlrequest": "~0.4.1",
     "request": "^2.34.0",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "anglicize": "0.0.5"
   }
 }

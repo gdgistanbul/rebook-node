@@ -18,7 +18,8 @@ exports.mybooks = function (req, res) {
     User.findById(req.user._id)
         .populate('books.bookId')
         .exec(function (err, user) {
-            //res.render("my-books", {});
-            res.json(user.books)
+            res.render("my-books", {
+                "myBooks": user.books
+            });
         })
 }
