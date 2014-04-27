@@ -82,13 +82,23 @@ exports.categories = function (req, res) {
 }
 
 exports.findOne = function (req, res) {
-    Book.findOne({_id: req.params.id}).exec(function (err, result) {
+    var id = req.params.id;
+    Book.findOne({_id: id}, function (err, data) {
         if (err) {
-            res.status(400)
-            res.json({error: err.message})
-        }
-        else {
-            res.json(result)
+            res.json({"result": false,
+                "data": false});
+        } else {
+            User.findOne({"books.bookId": id}, function (err, userData) {
+                data.amount = -1
+                if (userData) {
+                    var amount = userData.books.filter(function (e) {
+                        return e.bookId == id;
+                    })[0].amount;
+                    data.amount
+                }
+                res.json(data)
+            });
+
         }
     })
 }
