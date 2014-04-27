@@ -37,43 +37,16 @@ block content
                                 img.img-responsive(src='#{book.imgPath}', alt='#{book.title}', data-bigimgsrc='#{book.imgPath}')
                         .col-md-6.col-sm-6
                             h1 #{book.title}
+                            .description
+                                p
+                                    | !{book.description}
                             .price-availability-block.clearfix
                                 .price
                                     strong
                                         span $
-                                        | 47.00
-                                    em
-                                        | $
-                                        span 62.00
-                                .availability
-                                    | Availability:
-                                    strong In Stock
-                            .description
-                                p
-                                    | !{book.description}
+                                        | 10.00
                             .product-page-cart
-                                .product-quantity
-                                    .input-group.bootstrap-touchspin.input-group-sm
-                                        span.input-group-btn
-                                            button.btn.quantity-down.bootstrap-touchspin-down(type='button')
-                                                i.fa.fa-angle-down
-                                        span.input-group-addon.bootstrap-touchspin-prefix
-                                        input#product-quantity.form-control.input-sm(type='text', value='1', readonly='')
-                                        span.input-group-addon.bootstrap-touchspin-postfix
-                                        span.input-group-btn
-                                            button.btn.quantity-up.bootstrap-touchspin-up(type='button')
-                                                i.fa.fa-angle-up
-                                button.btn.btn-primary(type='submit') Add to cart
-                            .review
-                                input#backing4(type='range', value='4', step='0.25', style='display: none;')
-                                .rateit(data-rateit-backingfld='#backing4', data-rateit-resetable='false', data-rateit-ispreset='true', data-rateit-min='0', data-rateit-max='5')
-                                    button#rateit-reset-2.rateit-reset(data-role='none', aria-label='reset rating', aria-controls='rateit-range-2', style='display: none;')
-                                    #rateit-range-2.rateit-range(tabindex='0', role='slider', aria-label='rating', aria-owns='rateit-reset-2', aria-valuemin='0', aria-valuemax='5', aria-valuenow='4', aria-readonly='false', style='width: 80px; height: 16px;')
-                                        .rateit-selected.rateit-preset(style='height: 16px; width: 64px;')
-                                        .rateit-hover(style='height: 16px;')
-                                a(href='#') 7 reviews
-                                | |
-                                a(href='#') Write a review
+                                button.btn.btn-primary(type='submit') Paypal ile Öde
                             ul.social-icons
                                 li
                                     a.facebook(data-original-title='facebook', href='#')

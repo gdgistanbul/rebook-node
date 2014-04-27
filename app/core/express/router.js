@@ -29,9 +29,17 @@ module.exports = function (app) {
 
     router.route(config.appVerUrl + '/books/category/:slug/:limit')
         .get(controllers.book.categoryBooks)
+    router.route('/dashboard')
+        .get(controllers.app.dashboard)
+    router.route('/mybooks')
+        .get(controllers.app.mybooks)
+    router.route('/boughts')
+        .get(controllers.app.boughts)
 
     router.route(config.appVerUrl + '/books/:id')
         .get(controllers.book.findOne)
+    router.route(config.appVerUrl + '/books/addprice')
+        .post(controllers.book.addprice)
 
     router.route('/bookdetail/:id')
         .get(controllers.book.bookdetail)

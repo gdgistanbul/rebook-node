@@ -35,8 +35,8 @@ var App = function () {
     }
 
     var handleAutocomplete = function() {
-        if (typeof $("#search-book").val() != 'undefined') {
-            $('#search-book').typeahead({
+        if (typeof $(".search-book").val() != 'undefined') {
+            $('.search-book').typeahead({
                 minLength: 2,
                 limit: 10,
                 remote : {
@@ -44,7 +44,7 @@ var App = function () {
                     url: '/1/books/autocomplete/%QUERY',
                     filter: function(data) {
                         var resultList = data.map(function(item) {
-                            var jsonObject = {value: item.title, key: item.isbn, image: item.imgName};
+                            var jsonObject = {value: item.title, key: item.isbn, image: item.imgName, id: item._id};
                             return jsonObject;
                         });
                         return resultList;
@@ -53,7 +53,25 @@ var App = function () {
                 template: '<img src="{{image}}" width="50" height="60"/>&nbsp;<strong>{{value}}</strong>',
                 engine: Hogan
             }).on("typeahead:selected", function (e, datum) {
-                $("#search-book").submit();
+                if ($("#index-search").length > 0) {
+                    window.location = "bookdetail/" + datum.id;
+                } else if ($("#mybook-search").length > 0) {
+                    var retVal = prompt(datum.value + " adlı kitabınızın fiyatını giriniz : ", "Fiyat");
+                    if (retVal == parseFloat(retVal)) {
+                        $.ajax({
+                            url: "/1/books/addprice",
+                            data: "bookid=" + datum.id + "&amount=" + retVal,
+                            type: "POST",
+                            success: function(response) {
+                                if (response.type) {
+                                    window.location.reload(true);
+                                }
+                            }
+                        });
+                    } else {
+                        alert("Fiyat sadece rakamlardan oluşmalıdır");
+                    }
+                }
             });
         }
     }

@@ -1,0 +1,55 @@
+extends layout
+block content
+    .container
+        .row.margin-bottom-40
+            //
+                 BEGIN SIDEBAR
+            .sidebar.col-md-3.col-sm-3
+                ul.list-group.margin-bottom-25.sidebar-menu
+                    li.list-group-item.clearfix
+                        a(href='/dashboard')
+                            i.fa.fa-angle-right
+                            | Profilim
+                    li.list-group-item.clearfix
+                        a(href='/mybooks')
+                            i.fa.fa-angle-right
+                            | Benim Kitaplarım
+                    li.list-group-item.clearfix
+                        a(href='/boughts')
+                            i.fa.fa-angle-right
+                            | Aldığım Kitaplar
+            //
+               END SIDEBAR
+            //
+               BEGIN CONTENT
+            .col-md-9.col-sm-9
+                .content-form-page
+                    .row
+                        .col-md-11.col-sm-11
+                            form.form-horizontal(role='form')
+                                fieldset
+                                    legend Profil Bilgilerim
+                                    .form-group
+                                        label.col-lg-4.control-label(for='firstname')
+                                            | Ad
+                                            span.require *
+                                        .col-lg-8
+                                            input#firstname.form-control(type='text', value='#{req.user.name}')
+                                    .form-group
+                                        label.col-lg-4.control-label(for='lastname')
+                                            | Soyad
+                                            span.require *
+                                        .col-lg-8
+                                            input#lastname.form-control(type='text', value='')
+                                    .form-group
+                                        label.col-lg-4.control-label(for='email')
+                                            | Email
+                                            span.require *
+                                        .col-lg-8
+                                            input#email.form-control(type='text', value='#{req.user.email}')
+                                .row
+                                    .col-lg-8.col-md-offset-4.padding-left-0.padding-top-20
+                                        button.btn.btn-primary(type='submit') Save
+                                        button.btn.btn-default(type='button') İptal
+            //
+               END CONTENT

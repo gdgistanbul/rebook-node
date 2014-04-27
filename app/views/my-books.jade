@@ -1,0 +1,99 @@
+extends layout
+block content
+    .container
+        .row.margin-bottom-40
+            .col-md-12.col-sm-12
+                form(action='#')
+                    .input-group
+                        input.form-control(type='text', placeholder='Kitap Adı ya da ISBN giriniz', class='search-book', id='mybook-search')
+                        span.input-group-btn
+                            button.btn.btn-primary(type='submit') Ara
+        //
+            BEGIN SIDEBAR & CONTENT
+        .row.margin-bottom-40
+            //
+                 BEGIN SIDEBAR
+            .sidebar.col-md-3.col-sm-3
+                ul.list-group.margin-bottom-25.sidebar-menu
+                    li.list-group-item.clearfix
+                        a(href='/dashboard')
+                            i.fa.fa-angle-right
+                            | Profilim
+                    li.list-group-item.clearfix
+                        a(href='/mybooks')
+                            i.fa.fa-angle-right
+                            | Benim Kitaplarım
+                    li.list-group-item.clearfix
+                        a(href='/boughts')
+                            i.fa.fa-angle-right
+                            | Aldığım Kitaplar
+            //
+               END SIDEBAR
+            //
+               BEGIN CONTENT
+            .col-md-9.col-sm-9
+                .shopping-cart-page
+                    .shopping-cart-data.clearfix
+                        .table-wrapper-responsive
+                            table(summary='Shopping cart')
+                                tr
+                                    th.shopping-cart-image Resim
+                                    th.shopping-cart-description Kitap Adı
+                                    th.shopping-cart-ref-no ISBN
+                                    th.shopping-cart-price(colspan='2') Fiyat
+                                tr
+                                    td.shopping-cart-image
+                                        a(href='#')
+                                            img(src='assets/temp/products/model3.jpg', alt='Berry Lace Dress')
+                                    td.shopping-cart-description
+                                        h3
+                                            a(href='#') Cool green dress with red bell
+                                        p
+                                            strong Item 1
+                                            | - Color: Green; Size: S
+                                        em More info is here
+                                    td.shopping-cart-ref-no
+                                        | javc2133
+                                    td.shopping-cart-total
+                                        strong
+                                            span $
+                                            | 47.00
+                                    td.del-goods-col
+                                        a.del-goods(href='#')
+                                            i.fa.fa-times
+                                tr
+                                    td.shopping-cart-image
+                                        a(href='#')
+                                            img(src='assets/temp/products/model4.jpg', alt='Berry Lace Dress')
+                                    td.shopping-cart-description
+                                        h3
+                                            a(href='#') Cool green dress with red bell
+                                        p
+                                            strong Item 1
+                                            | - Color: Green; Size: S
+                                        em More info is here
+                                    td.shopping-cart-ref-no
+                                        | javc2133
+                                    td.shopping-cart-total
+                                        strong
+                                            span $
+                                            | 47.00
+                                    td.del-goods-col
+                                        a.del-goods(href='#')
+                                            i.fa.fa-times
+                        .shopping-total
+                            ul
+                                li
+                                    em Sub total
+                                    strong.price
+                                        span $
+                                        | 47.00
+                                li.shopping-total-price
+                                    em Total
+                                    strong.price
+                                        span $
+                                        | 50.00
+            //
+               END CONTENT
+        //
+           END SIDEBAR & CONTENT

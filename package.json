@@ -20,6 +20,7 @@
     "cookie-parser": "^1.0.1",
     "connect-redis": "^2.0.0",
     "redis": "^0.10.1",
-    "async": "^0.7.0"
+    "async": "^0.7.0",
+    "curlrequest": "~0.4.1"
   }
 }

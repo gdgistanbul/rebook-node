@@ -3,9 +3,9 @@ block content
     .container
         .row.margin-bottom-40
             .col-md-12.col-sm-12
-                form(action='#')
+                form(action='#', id='search-form')
                     .input-group
-                        input.form-control(type='text', placeholder='Kitap Adı ya da ISBN giriniz', id='search-book')
+                        input.form-control(type='text', placeholder='Kitap Adı ya da ISBN giriniz', class='search-book' id='index-search')
                         span.input-group-btn
                             button.btn.btn-primary(type='submit') Ara
         //

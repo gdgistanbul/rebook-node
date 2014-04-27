@@ -17,3 +17,15 @@ exports.index = function (req, res) {
             });
         });
 }
+
+exports.dashboard = function (req, res) {
+    res.render("dashboard", {});
+}
+
+exports.mybooks = function (req, res) {
+    res.render("my-books", {});
+}
+
+exports.boughts = function (req, res) {
+    res.render("boughts", {});
+}

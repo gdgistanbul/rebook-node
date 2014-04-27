@@ -21,6 +21,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 var Book = mongoose.model('Book')
     , async = require('async')
 
+/*
 Book.find().limit(10).exec(function (err, docs) {
     console.log(docs.length)
     async.eachSeries(docs, function (doc, callback) {
@@ -30,4 +31,4 @@ Book.find().limit(10).exec(function (err, docs) {
             callback()
         })
     })
-})
+})*/

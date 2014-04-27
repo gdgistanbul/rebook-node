@@ -1,6 +1,8 @@
 var mongoose = require('mongoose')
     , Book = mongoose.model('Book')
+    , User = mongoose.model('User')
     , reg = new RegExp(/^\d+$/)
+    , curl = require('curlrequest')
 
 exports.search = function (req, res) {
     var q = req.query.q
@@ -123,4 +125,19 @@ exports.bookdetail = function (req, res) {
             });
         }
     })
+}
+
+exports.addprice = function (req, res) {
+    var bookId = req.body.bookid;
+    var userId = req.user._id;
+    var amount = req.body.amount;
+
+    User.findOneAndUpdate({_id: userId, "books.bookId": {$ne: bookId}}, {$addToSet: {books: {bookId: bookId, amount: amount} }}, function(errBook, user) {
+        console.log(user);
+        if (errBook) {
+            res.json({data: "Book not found", type: false});
+        } else {
+            res.json({data: "Book price saved", type: true});
+        }
+    });
 }
