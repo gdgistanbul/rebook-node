@@ -23,3 +23,12 @@ exports.mybooks = function (req, res) {
             });
         })
 }
+
+
+exports.mybooksjson = function (req, res) {
+    User.findById('534ec5d751895ad37c8b4567')
+        .populate('books.bookId')
+        .exec(function (err, user) {
+            res.json(user.books);
+        })
+}
