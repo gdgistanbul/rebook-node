@@ -35,8 +35,6 @@ exports.mybooksjson = function (req, res) {
                 t.isSold = e.isSold
                 return t
             })
-
-
             res.json(books);
         })
 }
