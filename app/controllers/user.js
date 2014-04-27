@@ -29,6 +29,14 @@ exports.mybooksjson = function (req, res) {
     User.findOne({_id:'535ca1325dc5a60b004c3f0f'})
         .populate('books.bookId')
         .exec(function (err, user) {
-            res.json(user.books);
+            var books = user.books.map(function(e){
+                var t = e.bookId
+                t.amount = e.amount
+                t.isSold = e.isSold
+                return t
+            })
+
+
+            res.json(books);
         })
 }
