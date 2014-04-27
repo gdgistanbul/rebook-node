@@ -24,13 +24,12 @@ exports.dashboard = function (req, res) {
     res.render("dashboard", {});
 }
 
-
 exports.boughts = function (req, res) {
     res.render("boughts", {});
 }
 
 exports.paypalcallback = function (req, res) {
-    var status = req.param.status;
+    var status = req.params.status;
 
     var page = req.query.page;
     var savedTree = (17*(page/100000)).toFixed(2).toString();
