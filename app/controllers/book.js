@@ -125,7 +125,7 @@ exports.bookdetail = function (req, res) {
                     var amount = userData.books.filter(function(e) {
                        return e.bookId == id;
                     })[0].amount;
-                    Paypal.createPayment(userData.email, amount, data.title, config.paypal.cancel_url, config.paypal.return_url, function(err, result) {
+                    Paypal.createPayment(userData.email, amount, data.title, config.paypal.cancel_url, config.paypal.return_url + "?page=" + data.page + "&u=" + userData._id + "&b=" + data._id, function(err, result) {
                         console.log(err, result);
                         res.render('book-detail', {
                             "result": true,

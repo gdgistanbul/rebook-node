@@ -15,7 +15,7 @@ module.exports = exports = {
     paypal: {
         client_id: 'AQkquBDf1zctJOWGKWUEtKXm6qVhueUEMvXO_-MCI4DQQ4-LWvkDLIN2fGsd',
         client_secret: 'EL1tVxAjhT7cJimnz5-Nsx9k2reTKSVfErNQF-CmrwJgxRtylkGTKlU4RvrX',
-        cancel_url: "http://rebook-node.herokuapp.com/?cancel",
-        return_url: "http://rebook-node.herokuapp.com/?success"
+        cancel_url: "http://rebook-node.herokuapp.com/paypal/cancel",
+        return_url: "http://rebook-node.herokuapp.com/paypal/success"
     }
 }
