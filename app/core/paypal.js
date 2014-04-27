@@ -17,7 +17,7 @@ function PayPal() {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': 'Basic ' + new Buffer(config.paypal.client_id + ':' + config.paypal.client_secret).toString('base64')
             },
-            method : 'POST',
+            method: 'POST',
             body: 'grant_type=client_credentials'
         }
         request(authParams, function (err, response, body) {
@@ -47,7 +47,7 @@ PayPal.prototype.createPayment = function (email, amount, desc, cancelUrl, retur
             "payment_method": "paypal"
         },
         "intent": "sale",
-        "subject": email,
+        "subject": email || 'kayahalil@gmail.com',
         "redirect_urls": {
             "cancel_url": cancelUrl,
             "return_url": returnUrl

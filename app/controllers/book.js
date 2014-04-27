@@ -43,7 +43,7 @@ exports.categoryBooks = function (req, res) {
     var category = req.params.slug;
     var limit = req.params.limit;
     var q = {category: category}
-    if(category === "undefined")
+    if (category === "undefined")
         q = {}
     Book.find(q).limit(limit).skip(0).exec(function (err, data) {
         res.json(data);
@@ -113,10 +113,10 @@ exports.autocomplete = function (req, res) {
 
 exports.bookdetail = function (req, res) {
     var id = req.params.id;
-    Book.findOne({_id: id}, function(err, data) {
+    Book.findOne({_id: id}, function (err, data) {
         if (err) {
             res.json({"result": false,
-                      "data": false});
+                "data": false});
         } else {
             res.render('book-detail', {
                 "result": true,
@@ -128,10 +128,10 @@ exports.bookdetail = function (req, res) {
 
 exports.addprice = function (req, res) {
     var bookId = req.body.bookid;
-    var userId = req.user._id;
+    var userId = req.user._id || '535ca1325dc5a60b004c3f0f';
     var amount = req.body.amount;
 
-    User.findOneAndUpdate({_id: userId, "books.bookId": {$ne: bookId}}, {$addToSet: {books: {bookId: bookId, amount: amount} }}, function(errBook, user) {
+    User.findOneAndUpdate({_id: userId, "books.bookId": {$ne: bookId}}, {$addToSet: {books: {bookId: bookId, amount: amount} }}, function (errBook, user) {
         console.log(user);
         if (errBook) {
             res.json({data: "Book not found", type: false});
