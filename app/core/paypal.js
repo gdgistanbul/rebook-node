@@ -1,4 +1,5 @@
 var request = require('request')
+    , config = require('config')
     , _ = require('underscore')
     , options = {
         headers: {
@@ -9,17 +10,21 @@ var request = require('request')
 
 function PayPal() {
     this.init = function () {
-        request({
+        var authParams = {
             url: 'https://api.sandbox.paypal.com/v1/oauth2/token',
             headers: {
-                'Content-type': 'application/json',
-                'Authorization': 'Basic ' + 'AQkquBDf1zctJOWGKWUEtKXm6qVhueUEMvXO_-MCI4DQQ4-LWvkDLIN2fGsd:EL1tVxAjhT7cJimnz5-Nsx9k2reTKSVfErNQF-CmrwJgxRtylkGTKlU4RvrX'.toString('base64')
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + new Buffer(config.paypal.client_id + ':' + config.paypal.client_secret).toString('base64')
             },
-            body: JSON.stringify({grant_type: 'client_credentials'})
-        }, function (err, response, body) {
+            method : 'POST',
+            body: 'grant_type=client_credentials'
+        }
+        request(authParams, function (err, response, body) {
             if (!err && response.statusCode == 200) {
                 body = JSON.parse(body)
                 options.headers.Authorization = body.token_type + ' ' + body.access_token
+                console.log('Paypal is Ready')
             }
             else
                 console.log('Paypal Fail')
